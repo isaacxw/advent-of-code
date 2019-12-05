@@ -32,7 +32,7 @@ func getData() (output []int) {
 func calculate(input []int) []int {
 	for i := 0; i < len(input); i += 4 {
 		opcode := input[i]
-		firstIndex, secondIndex, store := input[i + 1], input[i + 2], input[i + 3]
+		firstIndex, secondIndex, store := input[i+1], input[i+2], input[i+3]
 		switch opcode {
 		case 1:
 			input[store] = input[firstIndex] + input[secondIndex]
@@ -67,6 +67,6 @@ func part2() {
 				answer = (100 * i) + j
 			}
 		}
-	}	
+	}
 	fmt.Printf("%v\n", answer)
 }

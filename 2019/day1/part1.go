@@ -28,10 +28,10 @@ func main() {
 		modules = append(modules, weight)
 	}
 
-	var totalFuel int 
+	var totalFuel int
 
 	for _, module := range modules {
-		fuel := module / 3 - 2
+		fuel := module/3 - 2
 		totalFuel += fuel
 	}
 

@@ -16,7 +16,7 @@ func main() {
 
 	defer file.Close()
 
-	var modules []int 
+	var modules []int
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
