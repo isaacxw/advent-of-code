@@ -34,7 +34,6 @@ func part2() (sum int) {
 	return
 }
 
-
 func increasing(ss string) bool {
 	for i := 0; i < len(ss)-1; i++ {
 		a, _ := strconv.Atoi(string(ss[i]))

@@ -9,7 +9,7 @@ import (
 )
 
 type OpCodes struct {
-	code int
+	code  int
 	modeA int
 	modeB int
 	modeC int
@@ -46,10 +46,10 @@ func defineOpCode(val int) OpCodes {
 	modeA, _ := strconv.Atoi(s[2:3])
 	modeB, _ := strconv.Atoi(s[1:2])
 	modeC, _ := strconv.Atoi(s[0:1])
-	
+
 	// set opcode values
-	return OpCodes {
-		code: opcode,
+	return OpCodes{
+		code:  opcode,
 		modeA: modeA,
 		modeB: modeB,
 		modeC: modeC,
@@ -72,21 +72,21 @@ func calculate(list []int) int {
 		switch opcode.code {
 		case 1:
 			// opcode 1: add
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
-			posC := list[pointer + 3]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
+			posC := list[pointer+3]
 			list[posC] = getValue(list, posA, opcode.modeA) + getValue(list, posB, opcode.modeB)
 			pointer += 4 // increment by 4
 		case 2:
 			// opcode 2: multiply
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
-			posC := list[pointer + 3]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
+			posC := list[pointer+3]
 			list[posC] = getValue(list, posA, opcode.modeA) * getValue(list, posB, opcode.modeB)
 			pointer += 4
 		case 3:
 			// read user input and save to given parameter
-			posA := list[pointer + 1]
+			posA := list[pointer+1]
 			var input int
 			fmt.Scanln(&input)
 			list[posA] = input
@@ -94,14 +94,14 @@ func calculate(list []int) int {
 
 		case 4:
 			// returns the value at position
-			posA := list[pointer + 1]
+			posA := list[pointer+1]
 			value := getValue(list, posA, opcode.modeA)
 			fmt.Println(value)
 			pointer += 2
 		case 5:
 			// jump-if-true
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
 			valA := getValue(list, posA, opcode.modeA)
 			valB := getValue(list, posB, opcode.modeB)
 
@@ -112,8 +112,8 @@ func calculate(list []int) int {
 			}
 		case 6:
 			// jump-if-false
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
 			valA := getValue(list, posA, opcode.modeA)
 			valB := getValue(list, posB, opcode.modeB)
 
@@ -124,9 +124,9 @@ func calculate(list []int) int {
 			}
 		case 7:
 			// less than
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
-			posC := list[pointer + 3]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
+			posC := list[pointer+3]
 			valA := getValue(list, posA, opcode.modeA)
 			valB := getValue(list, posB, opcode.modeB)
 
@@ -139,9 +139,9 @@ func calculate(list []int) int {
 			pointer += 4
 		case 8:
 			// equals
-			posA := list[pointer + 1]
-			posB := list[pointer + 2]
-			posC := list[pointer + 3]
+			posA := list[pointer+1]
+			posB := list[pointer+2]
+			posC := list[pointer+3]
 			valA := getValue(list, posA, opcode.modeA)
 			valB := getValue(list, posB, opcode.modeB)
 
@@ -158,4 +158,3 @@ func calculate(list []int) int {
 	}
 	return pointer
 }
-
