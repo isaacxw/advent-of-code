@@ -57,9 +57,9 @@ const passwordPosReq = policy => {
 
     const passwordHasLetterAt = index => policy.password[index - 1] === policy.letter;
 
-    const hasPos1 = passwordHasLetterAt(pos1);
-    const hasPos2 = passwordHasLetterAt(pos2);
-    return (hasPos1 || hasPos2) && !(hasPos1 && hasPos2);
+    const atPos1 = passwordHasLetterAt(pos1);
+    const atPos2 = passwordHasLetterAt(pos2);
+    return (atPos1 || atPos2) && !(atPos1 && atPos2);
 }
 
 /**
