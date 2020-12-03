@@ -8,7 +8,8 @@ async function getInput() {
 
   try {
     const file = await readFile(inputPath);
-    return file.toString().split("\n");
+    
+    return lines = file.toString().split("\n");
   } catch (err) {
     console.error('No input file found.');
     process.exit(1);
